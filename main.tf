@@ -1,6 +1,13 @@
+module "http_firewall_rule" {
+    source = "./modules/firewall"
+    project_id = var.project_id
+    port_type = "tcp"
+    image_port = "80"
+    tags = ["http-server"]
+    network = module.vpc.name
+}
 
-provider "google" {
-  project = var.project
-  region  = var.region
-  zone    = var.zone
+module "vpc" {
+    source = "./modules/network"
+    network = "test-vpc"
 }
