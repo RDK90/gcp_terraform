@@ -1,5 +1,5 @@
 module "http_firewall_rule" {
-    source = "./modules/firewall"
+    source = "./modules/firewall/health_check"
     project_id = var.project_id
     port_type = "tcp"
     image_port = "80"
